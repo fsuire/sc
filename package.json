@@ -2,10 +2,16 @@
   "name": "sc",
   "version": "0.1.0",
   "description": "",
-  "main": "index.js",
   "type": "module",
+  "module": "dist/index.js",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist/*"
+  ],
   "scripts": {
-    "build": "rollup -c"
+    "build": "rollup -c",
+    "build:watch": "rollup -c --watch"
   },
   "author": "",
   "license": "MIT",
