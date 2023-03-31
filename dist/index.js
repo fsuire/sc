@@ -1,3 +1,5 @@
+import castToboolean from './utils/castToboolean.js';
+
 function kebabCaseToPascalCase(kebabString) {
   return kebabString.split("-").reduce((acc, current) => {
     acc += current.charAt(0).toUpperCase() + current.slice(1);
@@ -46,12 +48,12 @@ class BoarzFormElement extends BoarzElement {
   }
   get value() {
     var _a;
-    return (_a = this._value) !== null && _a !== void 0 ? _a : null;
+    return (_a = this._value) != null ? _a : null;
   }
   get form() {
     let recursiveParentElement = this.parentElement;
     while (!(recursiveParentElement instanceof HTMLFormElement)) {
-      recursiveParentElement = recursiveParentElement === null || recursiveParentElement === void 0 ? void 0 : recursiveParentElement.parentElement;
+      recursiveParentElement = recursiveParentElement == null ? void 0 : recursiveParentElement.parentElement;
       if (!recursiveParentElement) {
         return null;
       }
@@ -69,10 +71,6 @@ class BoarzFormElement extends BoarzElement {
   }
 }
 BoarzFormElement.formAssociated = true;
-
-function castToboolean(source) {
-  return ![false, null, void 0, 0, "", "false", "null", "undefined", "0"].includes(source);
-}
 
 function debounce(func, waitFor) {
   let timeoutId = null;
@@ -165,13 +163,15 @@ function computeOriginalStyle(drawerElement) {
 }
 function applyOriginalStyle(drawerElement) {
   drawerElement.style.display = drawerElement.originalStyle.display;
-  requestAnimationFrame(() => requestAnimationFrame(() => {
-    drawerElement.style.height = drawerElement.originalStyle.height + "px";
-    drawerElement.style.paddingTop = drawerElement.originalStyle.paddingTop + "px";
-    drawerElement.style.paddingBottom = drawerElement.originalStyle.paddingBottom + "px";
-    drawerElement.style.borderTopWidth = drawerElement.originalStyle.borderTopWidth + "px";
-    drawerElement.style.borderBottomWidth = drawerElement.originalStyle.borderBottomWidth + "px";
-  }));
+  requestAnimationFrame(
+    () => requestAnimationFrame(() => {
+      drawerElement.style.height = drawerElement.originalStyle.height + "px";
+      drawerElement.style.paddingTop = drawerElement.originalStyle.paddingTop + "px";
+      drawerElement.style.paddingBottom = drawerElement.originalStyle.paddingBottom + "px";
+      drawerElement.style.borderTopWidth = drawerElement.originalStyle.borderTopWidth + "px";
+      drawerElement.style.borderBottomWidth = drawerElement.originalStyle.borderBottomWidth + "px";
+    })
+  );
 }
 
 function getOverlayElement() {
@@ -280,12 +280,12 @@ class InputNumber extends BoarzFormElement {
     this.controlElement = this.shadow.querySelector("#control");
     this.incrementElement.addEventListener("click", () => {
       var _a;
-      this.value = ((_a = this.value) !== null && _a !== void 0 ? _a : 0) + 1;
+      this.value = ((_a = this.value) != null ? _a : 0) + 1;
       this.updateControlElement();
     });
     this.decrementElement.addEventListener("click", () => {
       var _a;
-      this.value = ((_a = this.value) !== null && _a !== void 0 ? _a : 0) - 1;
+      this.value = ((_a = this.value) != null ? _a : 0) - 1;
       this.updateControlElement();
     });
     this.controlElement.addEventListener("input", () => {
@@ -295,14 +295,14 @@ class InputNumber extends BoarzFormElement {
       if (!isNaN(nextValue)) {
         this.value = nextValue;
       }
-      const valueLength = (_b = (_a = this.value) === null || _a === void 0 ? void 0 : _a.toString().length) !== null && _b !== void 0 ? _b : 0;
+      const valueLength = (_b = (_a = this.value) == null ? void 0 : _a.toString().length) != null ? _b : 0;
       let startOffset = this.value ? this.value.toString().length : 0;
       let endOffset = startOffset;
       const selection = getSelection();
       if (selection.rangeCount) {
         const range = selection.getRangeAt(0);
-        startOffset = range === null || range === void 0 ? void 0 : range.startOffset;
-        endOffset = range === null || range === void 0 ? void 0 : range.startOffset;
+        startOffset = range == null ? void 0 : range.startOffset;
+        endOffset = range == null ? void 0 : range.startOffset;
       }
       if (startOffset > valueLength) {
         startOffset = valueLength;
@@ -319,14 +319,20 @@ class InputNumber extends BoarzFormElement {
         selection.addRange(nextRange);
       } catch (e) {
         console.error(e);
-        console.error(this.controlElement.childNodes[0], startOffset, endOffset, (_c = this.value) === null || _c === void 0 ? void 0 : _c.toString(), (_d = this.value) === null || _d === void 0 ? void 0 : _d.toString().length);
+        console.error(
+          this.controlElement.childNodes[0],
+          startOffset,
+          endOffset,
+          (_c = this.value) == null ? void 0 : _c.toString(),
+          (_d = this.value) == null ? void 0 : _d.toString().length
+        );
       }
     });
     requestAnimationFrame(() => requestAnimationFrame(() => this.updateControlElement()));
   }
   updateControlElement() {
     var _a, _b;
-    this.controlElement.innerHTML = (_b = (_a = this.value) === null || _a === void 0 ? void 0 : _a.toString()) !== null && _b !== void 0 ? _b : "0";
+    this.controlElement.innerHTML = (_b = (_a = this.value) == null ? void 0 : _a.toString()) != null ? _b : "0";
   }
 }
 
@@ -334,7 +340,7 @@ class Overlay extends BoarzElement {
   connectedCallback() {
     var _a;
     super.connectedCallback();
-    if (((_a = this.parentElement) === null || _a === void 0 ? void 0 : _a.id) !== "sc-overlay") {
+    if (((_a = this.parentElement) == null ? void 0 : _a.id) !== "sc-overlay") {
       this.shadow.innerHTML = "<slot />";
       init(this);
     }
