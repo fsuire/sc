@@ -62,6 +62,17 @@ export default class InputNumber extends BoarzFormElement<number> {
     this.decrementElement = this.shadow.querySelector('#decrement')!
     this.controlElement = this.shadow.querySelector('#control')!
 
+    const updateValue = () => {
+      const valueAttribute = parseFloat(this.getAttribute('value') ?? '0')
+      this.value = isNaN(valueAttribute) ? 0 : valueAttribute
+      this.updateControlElement()
+    }
+    updateValue()
+
+    this.addEventListener('value-update', (...args) => {
+      updateValue()
+    })
+
     this.incrementElement.addEventListener('click', () => {
       this.value = (this.value ?? 0) + 1
       this.updateControlElement()
