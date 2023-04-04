@@ -1,4 +1,4 @@
-import { DrawerBehaviour } from './behaviours'
+import * as DrawerBehaviour from '../behaviours/DrawerBehaviour'
 import BoarzElement from './BoarzElement'
 
 export default class Drawer extends BoarzElement {

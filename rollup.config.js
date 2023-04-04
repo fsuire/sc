@@ -2,12 +2,13 @@ import dts from 'rollup-plugin-dts'
 import esbuild from 'rollup-plugin-esbuild'
 
 const input = {
-  index: 'src/index.ts',
-  BoarzElement: 'src/BoarzElement.ts',
-  BoarzFormElement: 'src/BoarzFormElement.ts',
-  Drawer: 'src/Drawer.ts',
-  InputNumber: 'src/InputNumber.ts',
-  Overlay: 'src/Overlay.ts',
+  // components
+  index: 'src/components/index.ts',
+  BoarzElement: 'src/components/BoarzElement.ts',
+  BoarzFormElement: 'src/components/BoarzFormElement.ts',
+  Drawer: 'src/components/Drawer.ts',
+  InputNumber: 'src/components/InputNumber.ts',
+  Overlay: 'src/components/Overlay.ts',
 
   // behaviours
   'behaviours/index': 'src/behaviours/index.ts',

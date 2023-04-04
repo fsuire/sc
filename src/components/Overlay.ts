@@ -1,5 +1,5 @@
 import BoarzElement from './BoarzElement'
-import { OverlayBehaviour } from './behaviours'
+import * as OverlayBehaviour from '../behaviours/OverlayBehaviour'
 
 export default class Overlay extends BoarzElement {
   protected connectedCallback(): void {

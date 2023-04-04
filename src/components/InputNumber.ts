@@ -21,7 +21,7 @@ export default class InputNumber extends BoarzFormElement<number> {
         display: flex;
         justify-content: center;
         padding: 0.25em;
-        background-color: var(--color-foreground-3);
+        background-color: var(--color-foreground-3, SkyBlue);
         border: 1px solid transparent;
         color: var(--color-background-3);
         width: 1em;
@@ -41,7 +41,7 @@ export default class InputNumber extends BoarzFormElement<number> {
       #decrement:hover,
       #increment:hover {
         cursor: pointer;
-        background-color: var(--color-foreground-2);
+        background-color: var(--color-foreground-2, LightBlue);
       }
       #control {
         min-width: 1em;
