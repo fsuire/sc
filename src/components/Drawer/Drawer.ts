@@ -1,5 +1,5 @@
-import * as DrawerBehaviour from '../behaviours/DrawerBehaviour'
-import BaseElement from './BaseElement'
+import * as DrawerBehaviour from '../../behaviours/DrawerBehaviour'
+import BaseElement from '../BaseElement'
 
 export default class Drawer extends BaseElement {
   static get observedAttributes(): string[] {

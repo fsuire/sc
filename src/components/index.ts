@@ -1,5 +1,5 @@
 export { default as BaseElement } from './BaseElement'
 export { default as BaseFormElement } from './BaseFormElement'
-export { default as Drawer } from './Drawer'
-export { default as InputNumber } from './InputNumber'
-export { default as Overlay } from './Overlay'
+export { default as Drawer } from './Drawer/Drawer'
+export { default as InputNumber } from './InputNumber/InputNumber'
+export { default as Overlay } from './Overlay/Overlay'

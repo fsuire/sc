@@ -1,4 +1,4 @@
-import BaseFormElement from './BaseFormElement'
+import BaseFormElement from '../BaseFormElement'
 
 export default class InputNumber extends BaseFormElement<number> {
   protected incrementElement!: HTMLElement

@@ -6,9 +6,9 @@ const input = {
   index: 'src/components/index.ts',
   BaseElement: 'src/components/BaseElement.ts',
   BaseFormElement: 'src/components/BaseFormElement.ts',
-  Drawer: 'src/components/Drawer.ts',
-  InputNumber: 'src/components/InputNumber.ts',
-  Overlay: 'src/components/Overlay.ts',
+  Drawer: 'src/components/Drawer/Drawer.ts',
+  InputNumber: 'src/components/InputNumber/InputNumber.ts',
+  Overlay: 'src/components/Overlay/Overlay.ts',
 
   // behaviours
   'behaviours/index': 'src/behaviours/index.ts',

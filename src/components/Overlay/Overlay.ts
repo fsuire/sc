@@ -1,5 +1,5 @@
-import BaseElement from './BaseElement'
-import * as OverlayBehaviour from '../behaviours/OverlayBehaviour'
+import BaseElement from '../BaseElement'
+import * as OverlayBehaviour from '../../behaviours/OverlayBehaviour'
 
 export default class Overlay extends BaseElement {
   protected connectedCallback(): void {
