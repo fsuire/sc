@@ -1,7 +1,7 @@
-import BoarzFormElement from './BoarzFormElement.js';
-import './BoarzElement.js';
+import BaseFormElement from './BaseFormElement.js';
+import './BaseElement.js';
 
-declare class InputNumber extends BoarzFormElement<number> {
+declare class InputNumber extends BaseFormElement<number> {
     protected incrementElement: HTMLElement;
     protected decrementElement: HTMLElement;
     protected controlElement: HTMLElement;

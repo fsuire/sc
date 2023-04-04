@@ -1,7 +1,7 @@
 import * as DrawerBehaviour from '../behaviours/DrawerBehaviour'
-import BoarzElement from './BoarzElement'
+import BaseElement from './BaseElement'
 
-export default class Drawer extends BoarzElement {
+export default class Drawer extends BaseElement {
   static get observedAttributes(): string[] {
     return ['is-opened']
   }

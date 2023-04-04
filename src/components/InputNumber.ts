@@ -1,6 +1,6 @@
-import BoarzFormElement from './BoarzFormElement'
+import BaseFormElement from './BaseFormElement'
 
-export default class InputNumber extends BoarzFormElement<number> {
+export default class InputNumber extends BaseFormElement<number> {
   protected incrementElement!: HTMLElement
   protected decrementElement!: HTMLElement
   protected controlElement!: HTMLElement

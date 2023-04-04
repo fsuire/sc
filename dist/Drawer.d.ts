@@ -1,4 +1,4 @@
-import BoarzElement from './BoarzElement.js';
+import BoarzElement from './BaseElement.js';
 
 declare class Drawer extends BoarzElement {
     static get observedAttributes(): string[];

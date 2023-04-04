@@ -1,7 +1,7 @@
-import BoarzElement from './BoarzElement.js';
+import BoarzElement from './BaseElement.js';
 import './utils/kebabCaseToPascalCase.js';
 
-class BoarzFormElement extends BoarzElement {
+class BaseFormElement extends BoarzElement {
   constructor() {
     super(...arguments);
     this.isValid = true;
@@ -41,6 +41,6 @@ class BoarzFormElement extends BoarzElement {
     return this.isValid;
   }
 }
-BoarzFormElement.formAssociated = true;
+BaseFormElement.formAssociated = true;
 
-export { BoarzFormElement as default };
+export { BaseFormElement as default };

@@ -1,8 +1,8 @@
-import BoarzFormElement from './BoarzFormElement.js';
-import './BoarzElement.js';
+import BaseFormElement from './BaseFormElement.js';
+import './BaseElement.js';
 import './utils/kebabCaseToPascalCase.js';
 
-class InputNumber extends BoarzFormElement {
+class InputNumber extends BaseFormElement {
   connectedCallback() {
     super.connectedCallback();
     this.shadow.innerHTML = `

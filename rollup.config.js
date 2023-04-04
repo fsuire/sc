@@ -4,8 +4,8 @@ import esbuild from 'rollup-plugin-esbuild'
 const input = {
   // components
   index: 'src/components/index.ts',
-  BoarzElement: 'src/components/BoarzElement.ts',
-  BoarzFormElement: 'src/components/BoarzFormElement.ts',
+  BaseElement: 'src/components/BaseElement.ts',
+  BaseFormElement: 'src/components/BaseFormElement.ts',
   Drawer: 'src/components/Drawer.ts',
   InputNumber: 'src/components/InputNumber.ts',
   Overlay: 'src/components/Overlay.ts',

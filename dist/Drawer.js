@@ -1,5 +1,5 @@
 import { i as init } from './DrawerBehaviour-aafb2ae6.js';
-import BoarzElement from './BoarzElement.js';
+import BoarzElement from './BaseElement.js';
 import './utils/castToboolean.js';
 import './utils/debounce.js';
 import './utils/removeLastChars.js';

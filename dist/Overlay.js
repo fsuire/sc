@@ -1,4 +1,4 @@
-import BoarzElement from './BoarzElement.js';
+import BoarzElement from './BaseElement.js';
 import { i as init } from './OverlayBehaviour-c7f00e66.js';
 import './utils/kebabCaseToPascalCase.js';
 

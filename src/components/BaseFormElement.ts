@@ -1,8 +1,8 @@
-import BoarzElement from './BoarzElement'
+import BaseElement from './BaseElement'
 
 type ValueType = string | { toString: () => string }
 
-export default abstract class BoarzFormElement<T extends ValueType> extends BoarzElement {
+export default abstract class BaseFormElement<T extends ValueType> extends BaseElement {
   static get observedAttributes(): string[] {
     return ['placeholder', 'value']
   }
