@@ -4,22 +4,20 @@ function getOverlayElement(): HTMLElement {
   if (!overlayElement) {
     const overlayStyleTag = document.createElement('style')
     overlayStyleTag.innerText = `
-body {
-  position: relative;
-}
-#${elementId} {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: 1;
-  pointer-events: none;
-}
-#${elementId} > * {
-  pointer-events: all;
-  position: absolute;
-}
+      body {
+        position: relative;
+      }
+      #${elementId} {
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        z-index: 1;
+        pointer-events: none;
+      }
+      #${elementId} > * {
+        pointer-events: all;
+        position: absolute;
+      }
     `
     document.body.appendChild(overlayStyleTag)
     overlayElement = document.createElement('div')

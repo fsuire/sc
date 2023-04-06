@@ -1,5 +1,5 @@
 import BoarzElement from './BaseElement.js';
-import { i as init } from './OverlayBehaviour-c7f00e66.js';
+import { i as init } from './OverlayBehaviour-39d616e7.js';
 import './utils/kebabCaseToPascalCase.js';
 
 class Overlay extends BoarzElement {

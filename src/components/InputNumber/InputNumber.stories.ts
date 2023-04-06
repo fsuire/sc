@@ -32,8 +32,8 @@ export default {
 
 const Template: Story<Partial<InputNumberPropsInterface>> = (args) => createComponent(args)
 
-export const Primary = Template.bind({});
-Primary.args = {
+export const Default = Template.bind({});
+Default.args = {
   value: 5,
   // primary: true,
   // label: 'Button',
