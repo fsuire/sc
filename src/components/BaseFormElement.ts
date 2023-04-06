@@ -14,7 +14,6 @@ export default abstract class BaseFormElement<T extends ValueType> extends BaseE
   public set value(value: T | null) {
     if (value !== this._value) {
       this._value = value
-      this.dispatchEvent(new Event('value-update'))
       this.dispatchEvent(new InputEvent('input', { data: this.value?.toString() ?? '' }))
     }
   }

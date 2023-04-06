@@ -13,7 +13,6 @@ class BaseFormElement extends BoarzElement {
     var _a, _b;
     if (value !== this._value) {
       this._value = value;
-      this.dispatchEvent(new Event("value-update"));
       this.dispatchEvent(new InputEvent("input", { data: (_b = (_a = this.value) == null ? void 0 : _a.toString()) != null ? _b : "" }));
     }
   }

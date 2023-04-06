@@ -16,8 +16,8 @@ const createComponent = ({ isOpened = false }: DrawerPropsInterface) => {
     <sc-drawer is-opened="${isOpened}">
       drawer
     </sc-drawer>
-  `;
-};
+  `
+}
 
 // -- Storybook component declaration -- //
 

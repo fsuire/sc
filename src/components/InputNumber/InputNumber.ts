@@ -63,6 +63,7 @@ export default class InputNumber extends BaseFormElement<number> {
     this.controlElement = this.shadow.querySelector('#control')!
 
     const updateValue = () => {
+      console.log('updateValue')
       const valueAttribute = parseFloat(this.getAttribute('value') ?? '0')
       this.value = isNaN(valueAttribute) ? 0 : valueAttribute
       this.updateControlElement()
@@ -74,10 +75,12 @@ export default class InputNumber extends BaseFormElement<number> {
     })
 
     this.incrementElement.addEventListener('click', () => {
+      console.log('increment')
       this.value = (this.value ?? 0) + 1
       this.updateControlElement()
     })
     this.decrementElement.addEventListener('click', () => {
+      console.log('decrement')
       this.value = (this.value ?? 0) - 1
       this.updateControlElement()
     })

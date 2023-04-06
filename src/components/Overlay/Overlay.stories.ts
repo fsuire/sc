@@ -16,8 +16,8 @@ const createComponent = ({ isOpened = false }: OverlayPropsInterface) => {
     <sc-overlay is-opened="${isOpened}">
       Overlay
     </sc-overlay>
-  `;
-};
+  `
+}
 
 // -- Storybook component declaration -- //
 

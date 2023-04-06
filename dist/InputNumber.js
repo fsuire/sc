@@ -61,6 +61,7 @@ class InputNumber extends BaseFormElement {
     this.controlElement = this.shadow.querySelector("#control");
     const updateValue = () => {
       var _a;
+      console.log("updateValue");
       const valueAttribute = parseFloat((_a = this.getAttribute("value")) != null ? _a : "0");
       this.value = isNaN(valueAttribute) ? 0 : valueAttribute;
       this.updateControlElement();
@@ -71,11 +72,13 @@ class InputNumber extends BaseFormElement {
     });
     this.incrementElement.addEventListener("click", () => {
       var _a;
+      console.log("increment");
       this.value = ((_a = this.value) != null ? _a : 0) + 1;
       this.updateControlElement();
     });
     this.decrementElement.addEventListener("click", () => {
       var _a;
+      console.log("decrement");
       this.value = ((_a = this.value) != null ? _a : 0) - 1;
       this.updateControlElement();
     });

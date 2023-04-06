@@ -14,10 +14,10 @@ customElements.define(`sc-input-number`, InputNumber)
 const createComponent = ({ value }: InputNumberPropsInterface) => {
   return html`
     <sc-input-number
-      value=${value}
+      value="${value}"
     />
-  `;
-};
+  // `
+}
 
 // -- Storybook component declaration -- //
 
@@ -35,23 +35,4 @@ const Template: Story<Partial<InputNumberPropsInterface>> = (args) => createComp
 export const Default = Template.bind({});
 Default.args = {
   value: 5,
-  // primary: true,
-  // label: 'Button',
 }
-
-// export const Secondary = Template.bind({});
-// Secondary.args = {
-//   label: 'Button',
-// };
-
-// export const Large = Template.bind({});
-// Large.args = {
-//   size: 'large',
-//   label: 'Button',
-// };
-
-// export const Small = Template.bind({});
-// Small.args = {
-//   size: 'small',
-//   label: 'Button',
-// };
