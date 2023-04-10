@@ -18,6 +18,7 @@ const input = {
   // utils
   'utils/index': 'src/utils/index.ts',
   'utils/castToboolean': 'src/utils/castToboolean.ts',
+  'utils/createDeferredPromise': 'src/utils/createDeferredPromise.ts',
   'utils/debounce': 'src/utils/debounce.ts',
   'utils/kebabCaseToCamelCase': 'src/utils/kebabCaseToCamelCase.ts',
   'utils/kebabCaseToPascalCase': 'src/utils/kebabCaseToPascalCase.ts',

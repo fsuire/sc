@@ -1,18 +1,24 @@
-import { i as init } from './DrawerBehaviour-aafb2ae6.js';
 import BoarzElement from './BaseElement.js';
-import './utils/castToboolean.js';
-import './utils/debounce.js';
-import './utils/removeLastChars.js';
+import { c as connect, d as disconnect } from './DrawerBehaviour-45f7c85a.js';
+import castToboolean from './utils/castToboolean.js';
 import './utils/kebabCaseToPascalCase.js';
+import './utils/removeLastChars.js';
 
 class Drawer extends BoarzElement {
   static get observedAttributes() {
     return ["is-opened"];
   }
+  get isOpened() {
+    var _a;
+    return castToboolean((_a = this.getAttribute("is-opened")) != null ? _a : "true");
+  }
   connectedCallback() {
     super.connectedCallback();
     this.shadow.innerHTML = "<slot />";
-    init(this);
+    connect(this);
+  }
+  disconnectedCallback() {
+    disconnect(this);
   }
 }
 

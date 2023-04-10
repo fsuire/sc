@@ -13,9 +13,25 @@ customElements.define(`sc-drawer`, Drawer)
 
 const createComponent = ({ isOpened = false }: DrawerPropsInterface) => {
   return html`
+    <style>
+      sc-drawer {
+        background-color: SkyBlue;
+        border: 4px solid LightSteelBlue;
+        margin: 4px;
+      }
+      .aroundDrawer {
+        background-color: LightBlue;
+      }
+    </style>
+    <div class="aroundDrawer">
+      a div before the drawer
+    </div>
     <sc-drawer is-opened="${isOpened}">
-      drawer
+    drawer
     </sc-drawer>
+    <div class="aroundDrawer">
+      a div after the drawer
+    </div>
   `
 }
 

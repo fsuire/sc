@@ -2,6 +2,11 @@ import BaseFormElement from './BaseFormElement.js';
 import './BaseElement.js';
 import './utils/kebabCaseToPascalCase.js';
 
+const primaryColor = "SkyBlue";
+const primaryColor_hover = "LightBlue";
+const black = "#121212";
+const white = "WhiteSmoke";
+
 class InputNumber extends BaseFormElement {
   connectedCallback() {
     super.connectedCallback();
@@ -19,9 +24,9 @@ class InputNumber extends BaseFormElement {
         display: flex;
         justify-content: center;
         padding: 0.25em;
-        background-color: var(--color-foreground-3, SkyBlue);
+        background-color: var(--SCInputNumber-buttons_backgroundColor, var(--SC-primaryColor, ${primaryColor}));
         border: 1px solid transparent;
-        color: var(--color-background-3);
+        color: var(--SCInputNumber-buttons_color, var(--SC-textColor, ${black}));
         width: 1em;
         user-select: none;
         transition: background-color 200ms ease-out;
@@ -39,15 +44,17 @@ class InputNumber extends BaseFormElement {
       #decrement:hover,
       #increment:hover {
         cursor: pointer;
-        background-color: var(--color-foreground-2, LightBlue);
+        background-color: var(--SCInputNumber-buttons_backgroundColor_hover, var(--SC-primaryColor_hover, ${primaryColor_hover}));
       }
       #control {
         min-width: 1em;
-        background-color: var(--color-background-3);
-        border: 1px solid var(--color-foreground-3);
+        background-color: var(--SCInputNumber-control_backgroundColor, var(--SC-backgroundColor, ${white}));
+        border-width: 1px;
+        border-style: solid;
+        border-color: var(--SCInputNumber-control_borderColor, var(--SC-borderColor, ${black}));
         border-left: none;
         border-right: none;
-        color: var(--color-foreground-3);
+        color: var(--SCInputNumber-control_color, var(--SC-color, ${black}));
         padding: 0.25em;
         text-align: center;
       }

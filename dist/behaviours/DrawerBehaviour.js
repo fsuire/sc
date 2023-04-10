@@ -1,4 +1,3 @@
 import '../utils/castToboolean.js';
-import '../utils/debounce.js';
 import '../utils/removeLastChars.js';
-export { i as init, s as setCssDisplayToNone, u as update } from '../DrawerBehaviour-aafb2ae6.js';
+export { c as connect, d as disconnect, u as update } from '../DrawerBehaviour-45f7c85a.js';
