@@ -3,6 +3,8 @@ import { html } from 'lit-html'
 
 import InputNumber from '../../../dist/InputNumber'
 
+import InputNumberDoc from './InputNumber.mdx'
+
 // -- Component declaration -- //
 
 interface InputNumberPropsInterface {
@@ -16,7 +18,7 @@ const createComponent = ({ value }: InputNumberPropsInterface) => {
     <sc-input-number
       value="${value}"
     />
-  // `
+  `
 }
 
 // -- Storybook component declaration -- //
@@ -26,6 +28,12 @@ export default {
   argTypes: {
     value: { control: 'number' },
   },
+  parameters: {
+    docs: {
+      page: InputNumberDoc,
+    },
+  },
+
 } as Meta
 
 // -- Storybook templates -- //

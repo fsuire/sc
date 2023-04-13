@@ -1,0 +1,39 @@
+# InputNumber
+
+```typescript
+customElements.define(`sc-input-number`, InputNumber)
+```
+```html
+<sc-input-number value="5" />
+```
+
+## Attributes
+
+| name       |  type   | is reactive | description |
+| :--------: | :-----: | :---------: | :---------: |
+| `value`    | number  |     yes     | the value   |
+
+## Events
+
+| name     | description         |
+| :------: | :------------------ |
+| `input`  | dispatched on input |
+
+## Css vars
+
+| name                                                     | description                                                       |
+| :------------------------------------------------------: | :---------------------------------------------------------------: |
+| `--SCInputNumber-buttons_backgroundColor`                | background color for both `#decrement` and `#increment` controls. |
+| `--SCInputNumber-buttons--hover_backgroundColor`         | background color on hover for both `#decrement` and `#increment` controls. |
+| `--SCInputNumber-buttons_borderColor`                    | background color for both `#decrement` and `#increment` controls. |
+| `--SCInputNumber-buttons_color`                          | font color for both `#decrement` and `#increment` controls.       |
+|                                                          |                                                                   |
+| `--SCInputNumber-decrement_backgroundColor`              | background color for `#decrement` controls.<br/> It has priority over `--SCInputNumber-buttons_backgroundColor` |
+| `--SCInputNumber-decrement--hover_backgroundColor`       | background color on hover for `#decrement` controls.<br/> It has priority over `--SCInputNumber-buttons_backgroundColor` |
+| `--SCInputNumber-decrement_borderColor`                  | border color for `#decrement` controls.<br/> It has priority over `--SCInputNumber-buttons_borderColor` |
+| `--SCInputNumber-decrement_color`                        | font color for `#decrement` controls.<br/> It has priority over `--SCInputNumber-buttons_color` |
+|                                                          |                                                                   |
+| `--SCInputNumber-increment_backgroundColor`              | background color for `#increment` controls.<br/> It has priority over `--SCInputNumber-buttons_backgroundColor` |
+| `--SCInputNumber-increment--hover_backgroundColor`       | background color on hover for `#increment` controls.<br/> It has priority over `--SCInputNumber-buttons_backgroundColor` |
+| `--SCInputNumber-increment_borderColor`                  | border color for `#increment` controls.<br/> It has priority over `--SCInputNumber-buttons_borderColor` |
+| `--SCInputNumber-increment_color`                        | font color for `#increment` controls.<br/> It has priority over `--SCInputNumber-buttons_color` |

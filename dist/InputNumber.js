@@ -2,10 +2,15 @@ import BaseFormElement from './BaseFormElement.js';
 import './BaseElement.js';
 import './utils/kebabCaseToPascalCase.js';
 
-const primaryColor = "SkyBlue";
-const primaryColor_hover = "LightBlue";
-const black = "#121212";
-const white = "WhiteSmoke";
+var defaults = {
+  transitionDuration: "200ms",
+  transitionTimingFunction: "ease-out",
+  // colors
+  primaryColor: "SkyBlue",
+  "primaryColor--hover": "LightBlue",
+  black: "#121212",
+  white: "WhiteSmoke"
+};
 
 class InputNumber extends BaseFormElement {
   connectedCallback() {
@@ -24,19 +29,58 @@ class InputNumber extends BaseFormElement {
         display: flex;
         justify-content: center;
         padding: 0.25em;
-        background-color: var(--SCInputNumber-buttons_backgroundColor, var(--SC-primaryColor, ${primaryColor}));
-        border: 1px solid transparent;
-        color: var(--SCInputNumber-buttons_color, var(--SC-textColor, ${black}));
         width: 1em;
         user-select: none;
         transition: background-color 200ms ease-out;
       }
       #decrement {
+        background-color: var(
+          --SCInputNumber-buttons_backgroundColor,
+          var(
+            --SCInputNumber-decrement_backgroundColor,
+            var(--SC-primaryColor, ${defaults.primaryColor})
+          )
+        );
+        border: 1px solid var(
+          --SCInputNumber-buttons_borderColor,
+          var(
+            --SCInputNumber-decrement_borderColor,
+            var(--SC-borderColor, ${defaults.black})
+          )
+        );
+        color: var(
+          --SCInputNumber-buttons_color,
+          var(
+            --SCInputNumber-decrement_color,
+            var(--SC-textColor, ${defaults.black})
+          )
+        );
         border-right: none;
         border-top-left-radius: 4px;
         border-bottom-left-radius: 4px;
       }
       #increment {
+        background-color: var(
+          --SCInputNumber-buttons_backgroundColor,
+          var(
+            --SCInputNumber-increment_backgroundColor,
+            var(--SC-primaryColor, ${defaults.primaryColor})
+          )
+        );
+        border: 1px solid var(
+          --SCInputNumber-buttons_borderColor,
+          var(
+            --SCInputNumber-increment_borderColor,
+            var(--SC-borderColor, ${defaults.black})
+          )
+        );
+        color: var(
+          --SCInputNumber-buttons_color,
+          var(
+            --SCInputNumber-increment_color,
+            var(--SC-textColor, ${defaults.black})
+          )
+        );
         border-left: none;
         border-top-right-radius: 4px;
         border-bottom-right-radius: 4px;
@@ -44,17 +88,35 @@ class InputNumber extends BaseFormElement {
       #decrement:hover,
       #increment:hover {
         cursor: pointer;
-        background-color: var(--SCInputNumber-buttons_backgroundColor_hover, var(--SC-primaryColor_hover, ${primaryColor_hover}));
+        background-color: var(--SCInputNumber-buttons--hover_backgroundColor, var(--SC-primaryColor--hover, ${defaults["primaryColor--hover"]}));
+      }
+      #decrement:hover {
+        background-color: var(
+          --SCInputNumber-buttons--hover_backgroundColor,
+          var(
+            --SCInputNumber-decrement--hover_backgroundColor,
+            var(--SC-primaryColor--hover, ${defaults["primaryColor--hover"]})
+          )
+        );
+      }
+      #increment:hover {
+        background-color: var(
+          --SCInputNumber-buttons--hover_backgroundColor,
+          var(
+            --SCInputNumber-increment--hover_backgroundColor,
+            var(--SC-primaryColor--hover, ${defaults["primaryColor--hover"]})
+          )
+        );
       }
       #control {
         min-width: 1em;
-        background-color: var(--SCInputNumber-control_backgroundColor, var(--SC-backgroundColor, ${white}));
+        background-color: var(--SCInputNumber-control_backgroundColor, var(--SC-backgroundColor, ${defaults.white}));
         border-width: 1px;
         border-style: solid;
-        border-color: var(--SCInputNumber-control_borderColor, var(--SC-borderColor, ${black}));
+        border-color: var(--SCInputNumber-control_borderColor, var(--SC-borderColor, ${defaults.black}));
         border-left: none;
         border-right: none;
-        color: var(--SCInputNumber-control_color, var(--SC-color, ${black}));
+        color: var(--SCInputNumber-control_color, var(--SC-color, ${defaults.black}));
         padding: 0.25em;
         text-align: center;
       }
