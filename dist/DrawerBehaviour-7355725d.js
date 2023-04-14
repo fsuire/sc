@@ -3,7 +3,6 @@ import removeLastChars from './utils/removeLastChars.js';
 
 function connect(element) {
   const drawerElement = element;
-  const computedStyle = window.getComputedStyle(drawerElement);
   const transitionDuration = "200ms";
   const transitionTimingFunction = "ease-out";
   drawerElement.mutationObserver = new MutationObserver((mutationList, observer) => {
@@ -13,7 +12,7 @@ function connect(element) {
       }
     }
   });
-  computeOriginalStyle(drawerElement, computedStyle);
+  computeOriginalStyle(drawerElement);
   drawerElement.style.transition = [
     `height var(--Drawer_transitionDuration, ${transitionDuration}) var(--Drawer_transitionTimingFunction, ${transitionTimingFunction})`,
     `margin-top var(--Drawer_transitionDuration, ${transitionDuration}) var(--Drawer_transitionTimingFunction, ${transitionTimingFunction})`,
@@ -42,7 +41,9 @@ function update(drawerElement) {
   drawerElement.style.borderTopWidth = (isOpened ? drawerElement.originalStyle.borderTopWidth : 0) + "px";
   drawerElement.style.borderBottomWidth = (isOpened ? drawerElement.originalStyle.borderBottomWidth : 0) + "px";
 }
-function computeOriginalStyle(drawerElement, computedStyle) {
+function computeOriginalStyle(drawerElement) {
+  drawerElement.style.position = "absolute";
+  const computedStyle = window.getComputedStyle(drawerElement);
   const boundingClientRect = drawerElement.getBoundingClientRect();
   const borderBottomWidth = parseFloat(removeLastChars(computedStyle.borderBottomWidth, 2));
   const borderTopWidth = parseFloat(removeLastChars(computedStyle.borderTopWidth, 2));
@@ -60,6 +61,7 @@ function computeOriginalStyle(drawerElement, computedStyle) {
     marginTop,
     height
   };
+  drawerElement.style.removeProperty("position");
 }
 
 var DrawerBehaviour = /*#__PURE__*/Object.freeze({

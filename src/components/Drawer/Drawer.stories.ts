@@ -27,7 +27,7 @@ const createComponent = ({ isOpened = false }: DrawerPropsInterface) => {
       a div before the drawer
     </div>
     <sc-drawer is-opened="${isOpened}">
-    drawer
+      <div>drawer</div>
     </sc-drawer>
     <div class="aroundDrawer">
       a div after the drawer

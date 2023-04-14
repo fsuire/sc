@@ -6,7 +6,6 @@ type DrawerElement = HTMLElement & { originalStyle: DrawerOriginalStyleInterface
 
 export function connect(element: HTMLElement): void {
   const drawerElement = element as DrawerElement
-  const computedStyle = window.getComputedStyle(drawerElement)
   const transitionDuration = '200ms'
   const transitionTimingFunction = 'ease-out'
   drawerElement.mutationObserver = new MutationObserver((mutationList, observer) => {
@@ -16,7 +15,8 @@ export function connect(element: HTMLElement): void {
       }
     }
   })
-  computeOriginalStyle(drawerElement, computedStyle)
+
+  computeOriginalStyle(drawerElement)
   
   drawerElement.style.transition = [
     `height var(--Drawer_transitionDuration, ${transitionDuration}) var(--Drawer_transitionTimingFunction, ${transitionTimingFunction})`,
@@ -50,7 +50,10 @@ export function update(drawerElement: DrawerElement): void {
   drawerElement.style.borderBottomWidth = (isOpened ? drawerElement.originalStyle.borderBottomWidth : 0) + 'px'
 }
 
-function computeOriginalStyle(drawerElement: DrawerElement, computedStyle: CSSStyleDeclaration): void {
+function computeOriginalStyle(drawerElement: DrawerElement): void {
+  drawerElement.style.position = 'absolute'
+
+  const computedStyle = window.getComputedStyle(drawerElement)
   const boundingClientRect = drawerElement.getBoundingClientRect()
   const borderBottomWidth = parseFloat(removeLastChars(computedStyle.borderBottomWidth, 2))
   const borderTopWidth = parseFloat(removeLastChars(computedStyle.borderTopWidth, 2))
@@ -63,6 +66,7 @@ function computeOriginalStyle(drawerElement: DrawerElement, computedStyle: CSSSt
     - borderTopWidth
     - paddingBottom
     - paddingTop
+
   drawerElement.originalStyle = {
     borderBottomWidth,
     borderTopWidth,
@@ -72,4 +76,6 @@ function computeOriginalStyle(drawerElement: DrawerElement, computedStyle: CSSSt
     marginTop,
     height,
   }
+
+  drawerElement.style.removeProperty('position')
 }

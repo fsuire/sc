@@ -1,5 +1,5 @@
 import BoarzElement from './BaseElement.js';
-import { c as connect, d as disconnect } from './DrawerBehaviour-45f7c85a.js';
+import { c as connect, d as disconnect } from './DrawerBehaviour-7355725d.js';
 import castToboolean from './utils/castToboolean.js';
 import './utils/kebabCaseToPascalCase.js';
 import './utils/removeLastChars.js';

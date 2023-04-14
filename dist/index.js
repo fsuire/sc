@@ -4,7 +4,7 @@ export { default as Drawer } from './Drawer.js';
 export { default as InputNumber } from './InputNumber.js';
 export { default as Overlay } from './Overlay.js';
 import './utils/kebabCaseToPascalCase.js';
-import './DrawerBehaviour-45f7c85a.js';
+import './DrawerBehaviour-7355725d.js';
 import './utils/castToboolean.js';
 import './utils/removeLastChars.js';
 import './OverlayBehaviour-39d616e7.js';
