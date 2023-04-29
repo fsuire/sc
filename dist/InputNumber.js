@@ -32,6 +32,8 @@ function styleInject(css, ref) {
 var css_248z = ":host {\n  display: inline-flex;\n  flex-direction: row;\n  font-size: 1em;\n  align-items: center;\n  justify-content: center;\n}\n\n#decrement,\n#increment {\n  display: flex;\n  justify-content: center;\n  padding: 0.25em;\n  width: 1em;\n  user-select: none;\n  transition: background-color 200ms ease-out;\n}\n\n#decrement {\n  background-color: var(--SCInputNumber-buttons_backgroundColor, var(--SCInputNumber-decrement_backgroundColor, var(--SC-primaryColor, SkyBlue)));\n  border: 1px solid var(--SCInputNumber-buttons_borderColor, var(--SCInputNumber-decrement_borderColor, var(--SC-borderColor, #121212)));\n  color: var(--SCInputNumber-buttons_color, var(--SCInputNumber-decrement_color, var(--SC-textColor, #121212)));\n  border-right: none;\n  border-top-left-radius: 4px;\n  border-bottom-left-radius: 4px;\n}\n\n#increment {\n  background-color: var(--SCInputNumber-buttons_backgroundColor, var(--SCInputNumber-increment_backgroundColor, var(--SC-primaryColor, SkyBlue)));\n  border: 1px solid var(--SCInputNumber-buttons_borderColor, var(--SCInputNumber-increment_borderColor, var(--SC-borderColor, #121212)));\n  color: var(--SCInputNumber-buttons_color, var(--SCInputNumber-increment_color, var(--SC-textColor, #121212)));\n  border-left: none;\n  border-top-right-radius: 4px;\n  border-bottom-right-radius: 4px;\n}\n\n#decrement:hover,\n#increment:hover {\n  cursor: pointer;\n  background-color: var(--SCInputNumber-buttons--hover_backgroundColor, var(--SC-primaryColor--hover, LightBlue));\n}\n\n#decrement:hover {\n  background-color: var(--SCInputNumber-buttons--hover_backgroundColor, var(--SCInputNumber-decrement--hover_backgroundColor, var(--SC-primaryColor--hover, LightBlue)));\n}\n\n#increment:hover {\n  background-color: var(--SCInputNumber-buttons--hover_backgroundColor, var(--SCInputNumber-increment--hover_backgroundColor, var(--SC-primaryColor--hover, LightBlue)));\n}\n\n#control {\n  min-width: 1em;\n  background-color: var(--SCInputNumber-control_backgroundColor, var(--SC-backgroundColor, WhiteSmoke));\n  border-width: 1px;\n  border-style: solid;\n  border-color: var(--SCInputNumber-control_borderColor, var(--SC-borderColor, #121212));\n  border-left: none;\n  border-right: none;\n  color: var(--SCInputNumber-control_color, var(--SC-color, #121212));\n  padding: 0.25em;\n  text-align: center;\n}";
 styleInject(css_248z);
 
+var template = "<div id=\"decrement\">-</div>\n<div id=\"control\" contenteditable=\"true\"></div>\n<div id=\"increment\">+</div>";
+
 class InputNumber extends BaseFormElement {
   connectedCallback() {
     super.connectedCallback();
@@ -39,9 +41,7 @@ class InputNumber extends BaseFormElement {
     <style>
       ${css_248z}
     </style>
-    <div id="decrement">-</div>
-    <div id="control" contenteditable="true"></div>
-    <div id="increment">+</div>
+    ${template}
     `;
     this.incrementElement = this.shadow.querySelector("#increment");
     this.decrementElement = this.shadow.querySelector("#decrement");

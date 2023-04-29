@@ -2,6 +2,7 @@ import BaseFormElement from '../BaseFormElement'
 import defaults from '../../defaults'
 
 import style from './InputNumber.scss'
+import template from './InputNumber.html'
 
 export default class InputNumber extends BaseFormElement<number> {
   protected incrementElement!: HTMLElement
@@ -14,9 +15,7 @@ export default class InputNumber extends BaseFormElement<number> {
     <style>
       ${style}
     </style>
-    <div id="decrement">-</div>
-    <div id="control" contenteditable="true"></div>
-    <div id="increment">+</div>
+    ${template}
     `
     this.incrementElement = this.shadow.querySelector('#increment')!
     this.decrementElement = this.shadow.querySelector('#decrement')!

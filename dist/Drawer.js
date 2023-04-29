@@ -4,6 +4,8 @@ import castToboolean from './utils/castToboolean.js';
 import './utils/kebabCaseToPascalCase.js';
 import './utils/removeLastChars.js';
 
+var template = "<slot>";
+
 class Drawer extends BaseElement {
   static get observedAttributes() {
     return ["is-opened"];
@@ -14,7 +16,7 @@ class Drawer extends BaseElement {
   }
   connectedCallback() {
     super.connectedCallback();
-    this.shadow.innerHTML = "<slot />";
+    this.shadow.innerHTML = template;
     connect(this);
   }
   disconnectedCallback() {
