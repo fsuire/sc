@@ -1,6 +1,6 @@
 import kebabCaseToPascalCase from '../utils/kebabCaseToPascalCase'
 
-export default abstract class BoarzElement extends HTMLElement {
+export default abstract class BaseElement extends HTMLElement {
   public shadow!: ShadowRoot
 
   constructor() {

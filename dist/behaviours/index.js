@@ -1,4 +1,4 @@
-export { D as DrawerBehaviour } from '../DrawerBehaviour-7355725d.js';
-export { O as OverlayBehaviour } from '../OverlayBehaviour-39d616e7.js';
+export { a as drawerBehaviour } from '../drawerBehaviour-450742b2.js';
+export { o as overlayBehaviour } from '../overlayBehaviour-7062c63c.js';
 import '../utils/castToboolean.js';
 import '../utils/removeLastChars.js';

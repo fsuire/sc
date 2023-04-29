@@ -1,9 +1,9 @@
-import BoarzElement from './BaseElement.js';
+import BaseElement from './BaseElement.js';
 
 type ValueType = string | {
     toString: () => string;
 };
-declare abstract class BaseFormElement<T extends ValueType> extends BoarzElement {
+declare abstract class BaseFormElement<T extends ValueType> extends BaseElement {
     static get observedAttributes(): string[];
     static formAssociated: boolean;
     protected isValid: boolean;

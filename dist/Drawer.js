@@ -1,10 +1,10 @@
-import BoarzElement from './BaseElement.js';
-import { c as connect, d as disconnect } from './DrawerBehaviour-7355725d.js';
+import BaseElement from './BaseElement.js';
+import { c as connect, d as disconnect } from './drawerBehaviour-450742b2.js';
 import castToboolean from './utils/castToboolean.js';
 import './utils/kebabCaseToPascalCase.js';
 import './utils/removeLastChars.js';
 
-class Drawer extends BoarzElement {
+class Drawer extends BaseElement {
   static get observedAttributes() {
     return ["is-opened"];
   }

@@ -12,8 +12,8 @@ const input = {
 
   // behaviours
   'behaviours/index': 'src/behaviours/index.ts',
-  'behaviours/DrawerBehaviour': 'src/behaviours/DrawerBehaviour.ts',
-  'behaviours/OverlayBehaviour': 'src/behaviours/OverlayBehaviour.ts',
+  'behaviours/drawerBehaviour': 'src/behaviours/drawer/drawerBehaviour.ts',
+  'behaviours/overlayBehaviour': 'src/behaviours/overlay/overlayBehaviour.ts',
 
   // utils
   'utils/index': 'src/utils/index.ts',

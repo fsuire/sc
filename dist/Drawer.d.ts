@@ -1,9 +1,7 @@
-import BoarzElement from './BaseElement.js';
-import { D as DrawerInterface } from './DrawerOriginalStyleInterface-705aef82.js';
+import BaseElement from './BaseElement.js';
 
-declare class Drawer extends BoarzElement {
+declare class Drawer extends BaseElement {
     static get observedAttributes(): string[];
-    originalStyle: DrawerInterface;
     protected get isOpened(): boolean;
     protected connectedCallback(): void;
     protected disconnectedCallback(): void;

@@ -1,11 +1,9 @@
-import { castToboolean, createDeferredPromise, debounce, removeLastChars } from '../utils'
+import { castToboolean, removeLastChars } from '../../utils'
 
-import DrawerOriginalStyleInterface from './DrawerOriginalStyleInterface'
-
-type DrawerElement = HTMLElement & { originalStyle: DrawerOriginalStyleInterface, mutationObserver: MutationObserver }
+import { DrawerElementType } from './DrawerElementType'
 
 export function connect(element: HTMLElement): void {
-  const drawerElement = element as DrawerElement
+  const drawerElement = element as DrawerElementType
   const transitionDuration = '200ms'
   const transitionTimingFunction = 'ease-out'
   drawerElement.mutationObserver = new MutationObserver((mutationList, observer) => {
@@ -35,11 +33,11 @@ export function connect(element: HTMLElement): void {
 }
 
 export function disconnect(element: HTMLElement): void {
-  const drawerElement = element as DrawerElement
+  const drawerElement = element as DrawerElementType
   drawerElement.mutationObserver.disconnect()
 }
 
-export function update(drawerElement: DrawerElement): void {
+export function update(drawerElement: DrawerElementType): void {
   const isOpened = castToboolean(drawerElement.getAttribute('is-opened'))
   drawerElement.style.height = (isOpened ? drawerElement.originalStyle.height : 0) + 'px'
   drawerElement.style.marginTop = (isOpened ? drawerElement.originalStyle.marginTop : 0) + 'px'
@@ -50,7 +48,7 @@ export function update(drawerElement: DrawerElement): void {
   drawerElement.style.borderBottomWidth = (isOpened ? drawerElement.originalStyle.borderBottomWidth : 0) + 'px'
 }
 
-function computeOriginalStyle(drawerElement: DrawerElement): void {
+function computeOriginalStyle(drawerElement: DrawerElementType): void {
   drawerElement.style.position = 'absolute'
 
   const computedStyle = window.getComputedStyle(drawerElement)

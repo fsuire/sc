@@ -1,3 +1,2 @@
-export * as DrawerBehaviour from './DrawerBehaviour'
-export * as OverlayBehaviour from './OverlayBehaviour'
-export type { default as DrawerOriginalStyleInterface } from './DrawerOriginalStyleInterface'
+export * as drawerBehaviour from './drawer/drawerBehaviour'
+export * as overlayBehaviour from './overlay/overlayBehaviour'

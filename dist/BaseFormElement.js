@@ -1,7 +1,7 @@
-import BoarzElement from './BaseElement.js';
+import BaseElement from './BaseElement.js';
 import './utils/kebabCaseToPascalCase.js';
 
-class BaseFormElement extends BoarzElement {
+class BaseFormElement extends BaseElement {
   constructor() {
     super(...arguments);
     this.isValid = true;

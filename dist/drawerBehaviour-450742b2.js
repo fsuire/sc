@@ -64,11 +64,11 @@ function computeOriginalStyle(drawerElement) {
   drawerElement.style.removeProperty("position");
 }
 
-var DrawerBehaviour = /*#__PURE__*/Object.freeze({
+var drawerBehaviour = /*#__PURE__*/Object.freeze({
   __proto__: null,
   connect: connect,
   disconnect: disconnect,
   update: update
 });
 
-export { DrawerBehaviour as D, connect as c, disconnect as d, update as u };
+export { drawerBehaviour as a, connect as c, disconnect as d, update as u };

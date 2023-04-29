@@ -1,6 +1,6 @@
 import kebabCaseToPascalCase from './utils/kebabCaseToPascalCase.js';
 
-class BoarzElement extends HTMLElement {
+class BaseElement extends HTMLElement {
   constructor() {
     super();
     this.shadow = this.attachShadow({ mode: "open" });
@@ -26,4 +26,4 @@ class BoarzElement extends HTMLElement {
   }
 }
 
-export { BoarzElement as default };
+export { BaseElement as default };

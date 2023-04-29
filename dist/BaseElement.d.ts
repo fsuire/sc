@@ -1,4 +1,4 @@
-declare abstract class BoarzElement extends HTMLElement {
+declare abstract class BaseElement extends HTMLElement {
     shadow: ShadowRoot;
     constructor();
     protected connectedCallback(): void;
@@ -6,4 +6,4 @@ declare abstract class BoarzElement extends HTMLElement {
     protected attributeChangedCallback(name: string, oldValue: string, newValue: string): void;
 }
 
-export { BoarzElement as default };
+export { BaseElement as default };

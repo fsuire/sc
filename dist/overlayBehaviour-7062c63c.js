@@ -32,9 +32,9 @@ function init(element) {
   overlayElement.appendChild(element);
 }
 
-var OverlayBehaviour = /*#__PURE__*/Object.freeze({
+var overlayBehaviour = /*#__PURE__*/Object.freeze({
   __proto__: null,
   init: init
 });
 
-export { OverlayBehaviour as O, init as i };
+export { init as i, overlayBehaviour as o };

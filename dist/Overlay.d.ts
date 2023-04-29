@@ -1,6 +1,6 @@
-import BoarzElement from './BaseElement.js';
+import BaseElement from './BaseElement.js';
 
-declare class Overlay extends BoarzElement {
+declare class Overlay extends BaseElement {
     protected connectedCallback(): void;
 }
 
