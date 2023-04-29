@@ -1,5 +1,7 @@
 declare abstract class BaseElement extends HTMLElement {
     shadow: ShadowRoot;
+    protected abstract get template(): string;
+    protected get css(): string;
     constructor();
     protected connectedCallback(): void;
     protected disconnectedCallback(): void;
