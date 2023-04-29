@@ -1,7 +1,7 @@
 import { Story, Meta } from '@storybook/web-components'
 import { html } from 'lit-html'
 
-import Drawer from './Drawer'
+import Drawer from '../../../dist/Drawer'
 
 // -- Component declaration -- //
 

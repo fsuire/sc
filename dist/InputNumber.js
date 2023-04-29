@@ -2,124 +2,42 @@ import BaseFormElement from './BaseFormElement.js';
 import './BaseElement.js';
 import './utils/kebabCaseToPascalCase.js';
 
-var defaults = {
-  transitionDuration: "200ms",
-  transitionTimingFunction: "ease-out",
-  // colors
-  primaryColor: "SkyBlue",
-  "primaryColor--hover": "LightBlue",
-  black: "#121212",
-  white: "WhiteSmoke"
-};
+function styleInject(css, ref) {
+  if ( ref === void 0 ) ref = {};
+  var insertAt = ref.insertAt;
+
+  if (!css || typeof document === 'undefined') { return; }
+
+  var head = document.head || document.getElementsByTagName('head')[0];
+  var style = document.createElement('style');
+  style.type = 'text/css';
+
+  if (insertAt === 'top') {
+    if (head.firstChild) {
+      head.insertBefore(style, head.firstChild);
+    } else {
+      head.appendChild(style);
+    }
+  } else {
+    head.appendChild(style);
+  }
+
+  if (style.styleSheet) {
+    style.styleSheet.cssText = css;
+  } else {
+    style.appendChild(document.createTextNode(css));
+  }
+}
+
+var css_248z = ":host {\n  display: inline-flex;\n  flex-direction: row;\n  font-size: 1em;\n  align-items: center;\n  justify-content: center;\n}\n\n#decrement,\n#increment {\n  display: flex;\n  justify-content: center;\n  padding: 0.25em;\n  width: 1em;\n  user-select: none;\n  transition: background-color 200ms ease-out;\n}\n\n#decrement {\n  background-color: var(--SCInputNumber-buttons_backgroundColor, var(--SCInputNumber-decrement_backgroundColor, var(--SC-primaryColor, SkyBlue)));\n  border: 1px solid var(--SCInputNumber-buttons_borderColor, var(--SCInputNumber-decrement_borderColor, var(--SC-borderColor, #121212)));\n  color: var(--SCInputNumber-buttons_color, var(--SCInputNumber-decrement_color, var(--SC-textColor, #121212)));\n  border-right: none;\n  border-top-left-radius: 4px;\n  border-bottom-left-radius: 4px;\n}\n\n#increment {\n  background-color: var(--SCInputNumber-buttons_backgroundColor, var(--SCInputNumber-increment_backgroundColor, var(--SC-primaryColor, SkyBlue)));\n  border: 1px solid var(--SCInputNumber-buttons_borderColor, var(--SCInputNumber-increment_borderColor, var(--SC-borderColor, #121212)));\n  color: var(--SCInputNumber-buttons_color, var(--SCInputNumber-increment_color, var(--SC-textColor, #121212)));\n  border-left: none;\n  border-top-right-radius: 4px;\n  border-bottom-right-radius: 4px;\n}\n\n#decrement:hover,\n#increment:hover {\n  cursor: pointer;\n  background-color: var(--SCInputNumber-buttons--hover_backgroundColor, var(--SC-primaryColor--hover, LightBlue));\n}\n\n#decrement:hover {\n  background-color: var(--SCInputNumber-buttons--hover_backgroundColor, var(--SCInputNumber-decrement--hover_backgroundColor, var(--SC-primaryColor--hover, LightBlue)));\n}\n\n#increment:hover {\n  background-color: var(--SCInputNumber-buttons--hover_backgroundColor, var(--SCInputNumber-increment--hover_backgroundColor, var(--SC-primaryColor--hover, LightBlue)));\n}\n\n#control {\n  min-width: 1em;\n  background-color: var(--SCInputNumber-control_backgroundColor, var(--SC-backgroundColor, WhiteSmoke));\n  border-width: 1px;\n  border-style: solid;\n  border-color: var(--SCInputNumber-control_borderColor, var(--SC-borderColor, #121212));\n  border-left: none;\n  border-right: none;\n  color: var(--SCInputNumber-control_color, var(--SC-color, #121212));\n  padding: 0.25em;\n  text-align: center;\n}";
+styleInject(css_248z);
 
 class InputNumber extends BaseFormElement {
   connectedCallback() {
     super.connectedCallback();
     this.shadow.innerHTML = `
     <style>
-      :host {
-        display: inline-flex;
-        flex-direction: row;
-        font-size: 1em;
-        align-items: center;
-        justify-content: center;
-      }
-      #decrement,
-      #increment {
-        display: flex;
-        justify-content: center;
-        padding: 0.25em;
-        width: 1em;
-        user-select: none;
-        transition: background-color 200ms ease-out;
-      }
-      #decrement {
-        background-color: var(
-          --SCInputNumber-buttons_backgroundColor,
-          var(
-            --SCInputNumber-decrement_backgroundColor,
-            var(--SC-primaryColor, ${defaults.primaryColor})
-          )
-        );
-        border: 1px solid var(
-          --SCInputNumber-buttons_borderColor,
-          var(
-            --SCInputNumber-decrement_borderColor,
-            var(--SC-borderColor, ${defaults.black})
-          )
-        );
-        color: var(
-          --SCInputNumber-buttons_color,
-          var(
-            --SCInputNumber-decrement_color,
-            var(--SC-textColor, ${defaults.black})
-          )
-        );
-        border-right: none;
-        border-top-left-radius: 4px;
-        border-bottom-left-radius: 4px;
-      }
-      #increment {
-        background-color: var(
-          --SCInputNumber-buttons_backgroundColor,
-          var(
-            --SCInputNumber-increment_backgroundColor,
-            var(--SC-primaryColor, ${defaults.primaryColor})
-          )
-        );
-        border: 1px solid var(
-          --SCInputNumber-buttons_borderColor,
-          var(
-            --SCInputNumber-increment_borderColor,
-            var(--SC-borderColor, ${defaults.black})
-          )
-        );
-        color: var(
-          --SCInputNumber-buttons_color,
-          var(
-            --SCInputNumber-increment_color,
-            var(--SC-textColor, ${defaults.black})
-          )
-        );
-        border-left: none;
-        border-top-right-radius: 4px;
-        border-bottom-right-radius: 4px;
-      }
-      #decrement:hover,
-      #increment:hover {
-        cursor: pointer;
-        background-color: var(--SCInputNumber-buttons--hover_backgroundColor, var(--SC-primaryColor--hover, ${defaults["primaryColor--hover"]}));
-      }
-      #decrement:hover {
-        background-color: var(
-          --SCInputNumber-buttons--hover_backgroundColor,
-          var(
-            --SCInputNumber-decrement--hover_backgroundColor,
-            var(--SC-primaryColor--hover, ${defaults["primaryColor--hover"]})
-          )
-        );
-      }
-      #increment:hover {
-        background-color: var(
-          --SCInputNumber-buttons--hover_backgroundColor,
-          var(
-            --SCInputNumber-increment--hover_backgroundColor,
-            var(--SC-primaryColor--hover, ${defaults["primaryColor--hover"]})
-          )
-        );
-      }
-      #control {
-        min-width: 1em;
-        background-color: var(--SCInputNumber-control_backgroundColor, var(--SC-backgroundColor, ${defaults.white}));
-        border-width: 1px;
-        border-style: solid;
-        border-color: var(--SCInputNumber-control_borderColor, var(--SC-borderColor, ${defaults.black}));
-        border-left: none;
-        border-right: none;
-        color: var(--SCInputNumber-control_color, var(--SC-color, ${defaults.black}));
-        padding: 0.25em;
-        text-align: center;
-      }
+      ${css_248z}
     </style>
     <div id="decrement">-</div>
     <div id="control" contenteditable="true"></div>

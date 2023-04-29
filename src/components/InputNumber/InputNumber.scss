@@ -1,0 +1,107 @@
+@use "src/styles/defaults" as *;
+
+:host {
+  display: inline-flex;
+  flex-direction: row;
+  font-size: 1em;
+  align-items: center;
+  justify-content: center;
+}
+
+#decrement,
+#increment {
+  display: flex;
+  justify-content: center;
+  padding: 0.25em;
+  width: 1em;
+  user-select: none;
+  transition: background-color 200ms ease-out;
+}
+
+#decrement {
+  background-color: var(
+    --SCInputNumber-buttons_backgroundColor,
+    var(
+      --SCInputNumber-decrement_backgroundColor,
+      var(--SC-primaryColor, $primaryColor)
+    )
+  );
+  border: 1px solid var(
+    --SCInputNumber-buttons_borderColor,
+    var(
+      --SCInputNumber-decrement_borderColor,
+      var(--SC-borderColor, $black)
+    )
+  );
+  color: var(
+    --SCInputNumber-buttons_color,
+    var(
+      --SCInputNumber-decrement_color,
+      var(--SC-textColor, $black)
+    )
+  );
+  border-right: none;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+#increment {
+  background-color: var(
+    --SCInputNumber-buttons_backgroundColor,
+    var(
+      --SCInputNumber-increment_backgroundColor,
+      var(--SC-primaryColor, $primaryColor)
+    )
+  );
+  border: 1px solid var(
+    --SCInputNumber-buttons_borderColor,
+    var(
+      --SCInputNumber-increment_borderColor,
+      var(--SC-borderColor, $black)
+    )
+  );
+  color: var(
+    --SCInputNumber-buttons_color,
+    var(
+      --SCInputNumber-increment_color,
+      var(--SC-textColor, $black)
+    )
+  );
+  border-left: none;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+#decrement:hover,
+#increment:hover {
+  cursor: pointer;
+  background-color: var(--SCInputNumber-buttons--hover_backgroundColor, var(--SC-primaryColor--hover, $primaryColor--hover));
+}
+#decrement:hover {
+  background-color: var(
+    --SCInputNumber-buttons--hover_backgroundColor,
+    var(
+      --SCInputNumber-decrement--hover_backgroundColor,
+      var(--SC-primaryColor--hover, $primaryColor--hover)
+    )
+  );
+}
+#increment:hover {
+  background-color: var(
+    --SCInputNumber-buttons--hover_backgroundColor,
+    var(
+      --SCInputNumber-increment--hover_backgroundColor,
+      var(--SC-primaryColor--hover, $primaryColor--hover)
+    )
+  );
+}
+#control {
+  min-width: 1em;
+  background-color: var(--SCInputNumber-control_backgroundColor, var(--SC-backgroundColor, $white));
+  border-width: 1px;
+  border-style: solid;
+  border-color: var(--SCInputNumber-control_borderColor, var(--SC-borderColor, $black));
+  border-left: none;
+  border-right: none;
+  color: var(--SCInputNumber-control_color, var(--SC-color, $black));
+  padding: 0.25em;
+  text-align: center;
+}

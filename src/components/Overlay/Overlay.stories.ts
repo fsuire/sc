@@ -1,7 +1,7 @@
 import { Story, Meta } from '@storybook/web-components'
 import { html } from 'lit-html'
 
-import Overlay from './Overlay'
+import Overlay from '../../../dist/Overlay'
 
 // -- Component declaration -- //
 

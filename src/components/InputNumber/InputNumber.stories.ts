@@ -1,7 +1,7 @@
 import { Story, Meta } from '@storybook/web-components'
 import { html } from 'lit-html'
 
-import InputNumber from './InputNumber'
+import InputNumber from '../../../dist/InputNumber'
 
 import InputNumberDoc from './InputNumber.mdx'
 
