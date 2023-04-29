@@ -9,13 +9,17 @@ export default class Drawer extends BaseElement {
     return ['is-opened']
   }
 
+  protected get template(): string {
+    return template
+  }
+
   protected get isOpened(): boolean {
     return castToboolean(this.getAttribute('is-opened') ?? 'true')
   }
 
   protected connectedCallback(): void {
     super.connectedCallback()
-    this.shadow.innerHTML = template
+    this.shadow.innerHTML = this.template
     drawerBehaviour.connect(this)
   }
 

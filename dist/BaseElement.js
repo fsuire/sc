@@ -5,6 +5,9 @@ class BaseElement extends HTMLElement {
     super();
     this.shadow = this.attachShadow({ mode: "open" });
   }
+  get css() {
+    return "";
+  }
   connectedCallback() {
     const connectedEvent = new Event("connection");
     this.dispatchEvent(connectedEvent);

@@ -2,6 +2,7 @@ import BaseElement from './BaseElement.js';
 
 declare class Drawer extends BaseElement {
     static get observedAttributes(): string[];
+    protected get template(): string;
     protected get isOpened(): boolean;
     protected connectedCallback(): void;
     protected disconnectedCallback(): void;

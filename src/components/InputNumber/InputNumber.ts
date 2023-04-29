@@ -1,10 +1,17 @@
 import BaseFormElement from '../BaseFormElement'
-import defaults from '../../defaults'
 
-import style from './InputNumber.scss'
+import css from './InputNumber.scss'
 import template from './InputNumber.html'
 
 export default class InputNumber extends BaseFormElement<number> {
+  protected get template(): string {
+    return template
+  }
+
+  protected get css(): string {
+    return css
+  }
+
   protected incrementElement!: HTMLElement
   protected decrementElement!: HTMLElement
   protected controlElement!: HTMLElement
@@ -13,9 +20,9 @@ export default class InputNumber extends BaseFormElement<number> {
     super.connectedCallback()
     this.shadow.innerHTML = `
     <style>
-      ${style}
+      ${this.css}
     </style>
-    ${template}
+    ${this.template}
     `
     this.incrementElement = this.shadow.querySelector('#increment')!
     this.decrementElement = this.shadow.querySelector('#decrement')!

@@ -3,6 +3,12 @@ import kebabCaseToPascalCase from '../utils/kebabCaseToPascalCase'
 export default abstract class BaseElement extends HTMLElement {
   public shadow!: ShadowRoot
 
+  protected abstract get template(): string
+
+  protected get css(): string {
+    return ''
+  }
+
   constructor() {
     super()
     this.shadow = this.attachShadow({ mode: 'open' })

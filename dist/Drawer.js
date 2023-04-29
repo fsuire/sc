@@ -10,13 +10,16 @@ class Drawer extends BaseElement {
   static get observedAttributes() {
     return ["is-opened"];
   }
+  get template() {
+    return template;
+  }
   get isOpened() {
     var _a;
     return castToboolean((_a = this.getAttribute("is-opened")) != null ? _a : "true");
   }
   connectedCallback() {
     super.connectedCallback();
-    this.shadow.innerHTML = template;
+    this.shadow.innerHTML = this.template;
     connect(this);
   }
   disconnectedCallback() {

@@ -35,13 +35,19 @@ styleInject(css_248z);
 var template = "<div id=\"decrement\">-</div>\n<div id=\"control\" contenteditable=\"true\"></div>\n<div id=\"increment\">+</div>";
 
 class InputNumber extends BaseFormElement {
+  get template() {
+    return template;
+  }
+  get css() {
+    return css_248z;
+  }
   connectedCallback() {
     super.connectedCallback();
     this.shadow.innerHTML = `
     <style>
-      ${css_248z}
+      ${this.css}
     </style>
-    ${template}
+    ${this.template}
     `;
     this.incrementElement = this.shadow.querySelector("#increment");
     this.decrementElement = this.shadow.querySelector("#decrement");
